@@ -28,8 +28,6 @@ public:
                 DevicePanelContainer& devicePanelContainer_,
                 const juce::Colour& colourTag_);
 
-    ~DevicePanel() override;
-
     void resized() override;
 
     ximu3::Connection& getConnection();
@@ -59,9 +57,6 @@ private:
 
     std::map<juce::Identifier, std::shared_ptr<Window>> windows;
     std::unique_ptr<WindowContainer> windowContainer;
-
-    std::function<void(ximu3::XIMU3_DecodeError)> decodeErrorCallback;
-    uint64_t decodeErrorCallbackID;
 
     void handleAsyncUpdate() override;
 
